@@ -42,12 +42,18 @@ function resizeButton() {
     const boxs = container.querySelectorAll('.box')
     btnResize.textContent = 'Resize'
     btnResize.addEventListener('click', () => {
-        let user = prompt('What size?')
-        if (user === null || user < 1) {
-            reset();
-            createDivs(16,16);
-        }
+        reset();
+        createDivs(slider.value,slider.value);
     })
     buttonsContainer.appendChild(btnResize).classList.add('btn')
 }
 resizeButton();
+
+var slider = document.getElementById("sizeSlider");
+var output = document.getElementById("sze");
+
+output.innerHTML = slider.value;
+
+slider.oninput = function() {
+  output.innerHTML = this.value +' x '+this.value;
+} 
