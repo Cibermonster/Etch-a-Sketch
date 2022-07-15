@@ -1,8 +1,5 @@
 const container = document.querySelector('.container');
-const btnBlack = document.createElement('button');
-const btnGray = document.createElement('button');
 const btnResize = document.createElement('button');
-const btnRGB = document.createElement('button');
 const buttonsContainer = document.querySelector('.buttons');
 const sizeContainer = document.querySelector('.sizeSelection');
 
@@ -54,24 +51,13 @@ window.addEventListener("load", startup, false);
 function startup() {
     colorWell = document.querySelector("#colorPicker");
     colorWell.value = defaultColor;
-    colorWell.addEventListener("input", updateFirst, false);
-    colorWell.addEventListener("change", updateAll, false);
+    colorWell.addEventListener("input", update, false);
+    colorWell.addEventListener("change", update, false);
     colorWell.select();
     setcolor(defaultColor)
 }
 
-colorPicker.addEventListener("input", updateFirst, false);
-colorPicker.addEventListener("change", watchColorPicker, false);
-
-function watchColorPicker(event) {
-    setcolor(event.target.value);
-}
-
-function updateFirst(event) {
-    setcolor(event.target.value);
-}
-
-function updateAll(event) {
+function update(event) {
     setcolor(event.target.value);
 }
 
