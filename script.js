@@ -1,3 +1,31 @@
+// COLOR PICKER //
+var colorWell;
+var defaultColor = "#FFFFFF";
+
+window.addEventListener("load", startup, false);
+
+function startup() {
+    colorWell = document.querySelector("#colorPicker");
+    colorWell.value = defaultColor;
+    colorWell.addEventListener("input", update, false);
+    colorWell.addEventListener("change", update, false);
+    colorWell.select();
+    setcolor(defaultColor)
+}
+
+function update(event) {
+    setcolor(event.target.value);
+}
+
+function setcolor(x) {
+    const boxs = container.querySelectorAll('.box')
+    boxs.forEach(box => box.addEventListener('mouseover', () => {
+        let Rnum = Math.floor(Math.random() * 255)
+        box.style.background = x
+    }))
+}
+
+// CORE CODE //
 const container = document.querySelector('.container');
 const btnResize = document.createElement('button');
 const buttonsContainer = document.querySelector('.buttons');
@@ -12,6 +40,7 @@ function createDivs(col, row) {
         container.appendChild(div).classList.add('box')
     }
     container.setAttribute('id', 'sketchPad');
+    setcolor(defaultColor)
 }
 createDivs(16,16);
 
@@ -41,30 +70,3 @@ output.innerHTML = slider.value +' x '+slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value +' x '+this.value;
 } 
-
-// COLOR PICKER //
-var colorWell;
-var defaultColor = "#FFFFFF";
-
-window.addEventListener("load", startup, false);
-
-function startup() {
-    colorWell = document.querySelector("#colorPicker");
-    colorWell.value = defaultColor;
-    colorWell.addEventListener("input", update, false);
-    colorWell.addEventListener("change", update, false);
-    colorWell.select();
-    setcolor(defaultColor)
-}
-
-function update(event) {
-    setcolor(event.target.value);
-}
-
-function setcolor(x) {
-    const boxs = container.querySelectorAll('.box')
-    boxs.forEach(box => box.addEventListener('mouseover', () => {
-        let Rnum = Math.floor(Math.random() * 255)
-        box.style.background = x
-    }))
-}
