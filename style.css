@@ -1,0 +1,11 @@
+body {
+    text-align: center;
+    color:white;
+    background-color: #0D1117;
+}
+.title {
+    font-weight: 900;
+    font-size: xx-large;
+    background-color: #161B22;
+    padding: 30px;
+}
