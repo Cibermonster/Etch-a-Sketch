@@ -34,7 +34,7 @@ const sizeContainer = document.querySelector('.sizeSelection');
 function createDivs(col, row) {
     for (let i = 0; i < (col * row); i++) {
         const div = document.createElement('div');
-        div.style.border = '1px solid rgb(90, 10, 10)';
+        div.style.border = '0px solid rgb(90, 10, 10)';
         container.style.gridTemplateColumns = `repeat(${col}, 1fr)`;
         container.style.gridTemplateRows = `repeat(${row}, 1fr)`;
         container.appendChild(div).classList.add('box')
