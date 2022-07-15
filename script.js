@@ -33,8 +33,9 @@ function grayColor() {
 
 grayColor();
 
-function resizeTo() {
-    
+function reset() {
+    const boxs = container.querySelectorAll('.box')
+    boxs.forEach(box => box.remove())
 }
 
 function resizeButton() {
@@ -43,16 +44,10 @@ function resizeButton() {
     btnResize.addEventListener('click', () => {
         let user = prompt('What size?')
         if (user === null || user < 1) {
-            resizeTo();
-            createDivs(10,10);
+            reset();
+            createDivs(16,16);
         }
     })
     buttonsContainer.appendChild(btnResize).classList.add('btn')
 }
 resizeButton();
-
-//container.parentNode.removeChild(container);
-//createDivs(16,16);
-
-//var m = document.getElementsByName('box')
-//m.remove();
