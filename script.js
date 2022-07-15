@@ -42,7 +42,7 @@ function createDivs(col, row) {
     container.setAttribute('id', 'sketchPad');
     setcolor(defaultColor)
 }
-createDivs(16,16);
+window.addEventListener("load", createDivs(16,16), false);
 
 function reset() {
     const boxs = container.querySelectorAll('.box')
