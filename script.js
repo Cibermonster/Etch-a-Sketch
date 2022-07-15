@@ -16,7 +16,6 @@ function createDivs(col, row) {
     }
     container.setAttribute('id', 'sketchPad');
 }
-
 createDivs(16,16);
 
 function grayColor() {
@@ -25,7 +24,7 @@ function grayColor() {
     btnGray.addEventListener('click', () => {
         boxs.forEach(box => box.addEventListener('mouseover', () => {
             let Rnum = Math.floor(Math.random() * 255)
-            box.style.background = `rgb(${Rnum},${Rnum},${Rnum})`
+            box.style.background = colorSelected
         }))
 
     })
@@ -50,6 +49,7 @@ function resizeButton() {
 }
 resizeButton();
 
+// SIZE SLIDER //
 var slider = document.getElementById("sizeSlider");
 var output = document.getElementById("sze");
 
@@ -59,3 +59,43 @@ output.innerHTML = slider.value +' x '+slider.value;
 slider.oninput = function() {
   output.innerHTML = this.value +' x '+this.value;
 } 
+
+// COLOR PICKER //
+var colorWell;
+var defaultColor = "#fff";
+
+window.addEventListener("load", startup, false);
+
+function startup() {
+    colorWell = document.querySelector("#colorPicker");
+    colorWell.value = defaultColor;
+    colorWell.addEventListener("input", updateFirst, false);
+    colorWell.addEventListener("change", updateAll, false);
+    colorWell.select();
+}
+
+  
+colorPicker.addEventListener("input", updateFirst, false);
+colorPicker.addEventListener("change", watchColorPicker, false);
+
+function watchColorPicker(event) {
+    document.querySelectorAll("p").forEach(function(p) {
+        p.style.color = event.target.value;
+        console.log(event.target.value)
+    });
+}
+
+function updateFirst(event) {
+    var p = document.querySelector("p");
+
+    if (p) {
+        p.style.color = event.target.value;
+    }
+}
+
+function updateAll(event) {
+    document.querySelectorAll("p").forEach(function(p) {
+        p.style.color = event.target.value;
+    });
+}
+  
