@@ -18,20 +18,6 @@ function createDivs(col, row) {
 }
 createDivs(16,16);
 
-function grayColor() {
-    const boxs = container.querySelectorAll('.box')
-    btnGray.textContent = 'Gray'
-    btnGray.addEventListener('click', () => {
-        boxs.forEach(box => box.addEventListener('mouseover', () => {
-            let Rnum = Math.floor(Math.random() * 255)
-            box.style.background = colorSelected
-        }))
-
-    })
-    buttonsContainer.appendChild(btnGray).classList.add('btn')
-}
-grayColor();
-
 function reset() {
     const boxs = container.querySelectorAll('.box')
     boxs.forEach(box => box.remove())
@@ -43,7 +29,6 @@ function resizeButton() {
     btnResize.addEventListener('click', () => {
         reset();
         createDivs(slider.value,slider.value);
-        grayColor();
     })
     sizeContainer.appendChild(btnResize).classList.add('btn')
 }
@@ -80,8 +65,11 @@ colorPicker.addEventListener("change", watchColorPicker, false);
 
 function watchColorPicker(event) {
     document.querySelectorAll("p").forEach(function(p) {
-        p.style.color = event.target.value;
-        console.log(event.target.value)
+        const boxs = container.querySelectorAll('.box')
+        boxs.forEach(box => box.addEventListener('mouseover', () => {
+            let Rnum = Math.floor(Math.random() * 255)
+            box.style.background = event.target.value
+        }))
     });
 }
 
