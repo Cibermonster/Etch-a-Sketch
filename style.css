@@ -12,6 +12,7 @@ body {
     background-color: #161B22;
     padding: 30px;
     width: 100%;
+    margin-bottom:30px;
 }
 .main {
     border-style: solid double;
@@ -21,8 +22,8 @@ body {
     justify-content: center;
 }
 .container {
-    width:500px;
-    height:500px;
+    width:600px;
+    height:600px;
     display: grid;
     z-index:100;
 }
