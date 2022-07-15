@@ -47,7 +47,7 @@ slider.oninput = function() {
 
 // COLOR PICKER //
 var colorWell;
-var defaultColor = "#fff";
+var defaultColor = "#FFFFFF";
 
 window.addEventListener("load", startup, false);
 
@@ -57,33 +57,28 @@ function startup() {
     colorWell.addEventListener("input", updateFirst, false);
     colorWell.addEventListener("change", updateAll, false);
     colorWell.select();
+    setcolor(defaultColor)
 }
 
-  
 colorPicker.addEventListener("input", updateFirst, false);
 colorPicker.addEventListener("change", watchColorPicker, false);
 
 function watchColorPicker(event) {
-    document.querySelectorAll("p").forEach(function(p) {
-        const boxs = container.querySelectorAll('.box')
-        boxs.forEach(box => box.addEventListener('mouseover', () => {
-            let Rnum = Math.floor(Math.random() * 255)
-            box.style.background = event.target.value
-        }))
-    });
+    setcolor(event.target.value);
 }
 
 function updateFirst(event) {
-    var p = document.querySelector("p");
-
-    if (p) {
-        p.style.color = event.target.value;
-    }
+    setcolor(event.target.value);
 }
 
 function updateAll(event) {
-    document.querySelectorAll("p").forEach(function(p) {
-        p.style.color = event.target.value;
-    });
+    setcolor(event.target.value);
 }
-  
+
+function setcolor(x) {
+    const boxs = container.querySelectorAll('.box')
+    boxs.forEach(box => box.addEventListener('mouseover', () => {
+        let Rnum = Math.floor(Math.random() * 255)
+        box.style.background = x
+    }))
+}
