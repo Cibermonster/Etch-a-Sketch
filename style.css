@@ -27,6 +27,14 @@ body {
     display: grid;
     z-index:100;
 }
+.toolbar {
+    display:flex;
+    align-items: center;
+    justify-content: center;
+}
+.toolbar div {
+    margin-inline:20px;
+}
 .buttons {
     margin-top:10px;
 }
