@@ -26,6 +26,7 @@ body {
     height:600px;
     display: grid;
     z-index: 100;
+    background-color: black;
     border: 1px solid rgb(90, 10, 10);
 }
 .toolbar {
